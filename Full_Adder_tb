@@ -1,0 +1,34 @@
+//100 days of RTL design//
+
+//Abilash P//
+
+//Full Adder//
+
+module full_adder_tb();
+
+reg  a_in,b_in,c_in;
+wire sum,carry;
+
+full_adder FA(.a_in(a_in), .b_in(b_in), .c_in(c_in), .sum(sum), .carry(carry));
+
+integer i;
+
+initial 
+begin
+  a_in = 1'b0;
+  b_in = 1'b0;
+  c_in = 1'b0;
+end
+
+initial
+begin
+  for(i=0; i<=7; i=i+1)
+  begin
+       {a_in,b_in,c_in} = i;
+       #10;
+  end
+end
+
+initial
+  $monitor("Input A = %b----Input B = %b----Input C = %b----Output Sum = %b----Output Carry = %b", a_in,b_in,c_in,sum,carry);
+endmodule

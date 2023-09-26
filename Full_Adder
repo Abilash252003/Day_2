@@ -1,0 +1,27 @@
+//100 days of RTL design//
+
+//Abilash P//
+
+//Full Adder//
+
+module full_adder (a_in, b_in, c_in, sum, carry);
+
+input a_in, b_in, c_in;
+
+output sum, carry;
+
+assign sum   = a_in^b_in^c_in;
+
+assign carry = (a_in&b_in) | (b_in&c_in) | (c_in&a_in);
+
+endmodule
+
+///alternative way///
+
+///using the half adders///
+
+///dataflow method///
+
+///half_adder HA1 (.a_in(a_in), .b_in(b_in),   .sum(w1),  .carry(w2))
+///half_adder HA2 (.a_in(w1)  , .b_in(c_in)  , .sum(sum), .carry(w3))
+///or or1(w2,w3)///
